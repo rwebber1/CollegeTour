@@ -1,0 +1,252 @@
+\hypertarget{class_college_model}{}\section{College\+Model Class Reference}
+\label{class_college_model}\index{College\+Model@{College\+Model}}
+
+
+The \mbox{\hyperlink{class_college_model}{College\+Model}} class The class that will process all the functionality of the UI and allow the user to properly plan their trip and make purchases.  
+
+
+
+
+{\ttfamily \#include $<$collegemodel.\+h$>$}
+
+Inheritance diagram for College\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_college_model}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_college_model_a77fd4ae5151724440b68f236305ff74e}{souvenir\+Button\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Processes intermission between traversal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_college_model_a028e4ea98b27a8d5fffafdb69a1d9e2d}{College\+Model}} (\mbox{\hyperlink{struct_college}{College}} college\+Clicked, bool asu\+Trip, Q\+Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_college_model_a2edbda0635ecdd023e4d7ea8258f72e3}{$\sim$\+College\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Default Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_college_model_a95322085a90304da8cbb265c80a3c3aa}{recursive\+Path\+Planner}} (\mbox{\hyperlink{struct_college}{College}} current\+College, Q\+Vector$<$ \mbox{\hyperlink{struct_college}{College}} $>$ \&most\+Efficient\+List)
+\begin{DoxyCompactList}\small\item\em Recursive function to effectively plan the trip amongst colleges. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_college_model_ab621eb530418fdcbd35a88911881504f}{get\+Trip\+Length}} ()
+\begin{DoxyCompactList}\small\item\em Function to receive trip length from student. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_college_model_aeabb600577c25bbe804849baa4875c14}{populate\+Souvenir\+Menu}} (int college\+ID)
+\begin{DoxyCompactList}\small\item\em Populates menu with souvenir data to be purchased. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_college_model_adad9674dbee23e82f64508cd1cfe2670}{clear\+Widgets}} (Q\+Layout $\ast$layout)
+\begin{DoxyCompactList}\small\item\em Clears widgets to maintain integrity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_college_model_a345c4e6868df90bed49e80b6783f5578}{vector\+Contains}} (Q\+Vector$<$ \mbox{\hyperlink{struct_college}{College}} $>$ colleges, \mbox{\hyperlink{struct_college}{College}} search\+Rest)
+\begin{DoxyCompactList}\small\item\em Search function for college. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_college_model_a0bf105af39d44c58b7acfc4600f739cf}{confirm\+Purchase}} (\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} souvenir)
+\begin{DoxyCompactList}\small\item\em Reassurance of purchase from student. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_college_model_a6b2cca5127c7d95affe9870b1226a012}{update\+Cart}} (\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} item)
+\begin{DoxyCompactList}\small\item\em Adds item to cart and updates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_college_model_aec2e897e1a9e275308ed7889b7d94ef1}{delay}} (int n)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_college_model_aec2e897e1a9e275308ed7889b7d94ef1}{College\+Model\+::delay}} Helper timing function for loading page. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_college_model_ac37d99bb60d755ef0539d8e6c4481ab7}{loading\+Page}} ()
+\begin{DoxyCompactList}\small\item\em Timing function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \mbox{\hyperlink{class_college_model}{College\+Model}} class The class that will process all the functionality of the UI and allow the user to properly plan their trip and make purchases. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_college_model_a028e4ea98b27a8d5fffafdb69a1d9e2d}\label{class_college_model_a028e4ea98b27a8d5fffafdb69a1d9e2d}} 
+\index{College\+Model@{College\+Model}!College\+Model@{College\+Model}}
+\index{College\+Model@{College\+Model}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{College\+Model()}{CollegeModel()}}
+{\footnotesize\ttfamily College\+Model\+::\+College\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_college}{College}}}]{college\+Clicked,  }\item[{bool}]{asu\+Trip,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+\mbox{\hyperlink{class_college_model_a028e4ea98b27a8d5fffafdb69a1d9e2d}{College\+Model\+::\+College\+Model}}.
+
+The \mbox{\hyperlink{struct_college}{College}} User-\/\+Interface 
+\begin{DoxyParams}{Parameters}
+{\em college\+Clicked} & -\/ A struct argument \\
+\hline
+{\em asu\+Trip} & -\/ bool for starting point \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_college_model_a2edbda0635ecdd023e4d7ea8258f72e3}\label{class_college_model_a2edbda0635ecdd023e4d7ea8258f72e3}} 
+\index{College\+Model@{College\+Model}!````~College\+Model@{$\sim$\+College\+Model}}
+\index{````~College\+Model@{$\sim$\+College\+Model}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{$\sim$\+College\+Model()}{~CollegeModel()}}
+{\footnotesize\ttfamily College\+Model\+::$\sim$\+College\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default Destructor. 
+
+\mbox{\hyperlink{class_college_model_a2edbda0635ecdd023e4d7ea8258f72e3}{College\+Model\+::$\sim$\+College\+Model}}.
+
+Default Constructor 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_college_model_adad9674dbee23e82f64508cd1cfe2670}\label{class_college_model_adad9674dbee23e82f64508cd1cfe2670}} 
+\index{College\+Model@{College\+Model}!clear\+Widgets@{clear\+Widgets}}
+\index{clear\+Widgets@{clear\+Widgets}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{clear\+Widgets()}{clearWidgets()}}
+{\footnotesize\ttfamily void College\+Model\+::clear\+Widgets (\begin{DoxyParamCaption}\item[{Q\+Layout $\ast$}]{layout }\end{DoxyParamCaption})}
+
+
+
+Clears widgets to maintain integrity. 
+
+\mbox{\hyperlink{class_college_model_adad9674dbee23e82f64508cd1cfe2670}{College\+Model\+::clear\+Widgets}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em layout} & -\/ Widget to be cleared argument \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_college_model_a0bf105af39d44c58b7acfc4600f739cf}\label{class_college_model_a0bf105af39d44c58b7acfc4600f739cf}} 
+\index{College\+Model@{College\+Model}!confirm\+Purchase@{confirm\+Purchase}}
+\index{confirm\+Purchase@{confirm\+Purchase}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{confirm\+Purchase()}{confirmPurchase()}}
+{\footnotesize\ttfamily void College\+Model\+::confirm\+Purchase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}}}]{souvenir }\end{DoxyParamCaption})}
+
+
+
+Reassurance of purchase from student. 
+
+\mbox{\hyperlink{class_college_model_a0bf105af39d44c58b7acfc4600f739cf}{College\+Model\+::confirm\+Purchase}} Confirms if the user wants to purchase the item they have selected for reassurance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em souvenir} & -\/ A struct argument \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_college_model_aec2e897e1a9e275308ed7889b7d94ef1}\label{class_college_model_aec2e897e1a9e275308ed7889b7d94ef1}} 
+\index{College\+Model@{College\+Model}!delay@{delay}}
+\index{delay@{delay}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{delay()}{delay()}}
+{\footnotesize\ttfamily void College\+Model\+::delay (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_college_model_aec2e897e1a9e275308ed7889b7d94ef1}{College\+Model\+::delay}} Helper timing function for loading page. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & -\/ Amount of seconds to delay \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_college_model_ab621eb530418fdcbd35a88911881504f}\label{class_college_model_ab621eb530418fdcbd35a88911881504f}} 
+\index{College\+Model@{College\+Model}!get\+Trip\+Length@{get\+Trip\+Length}}
+\index{get\+Trip\+Length@{get\+Trip\+Length}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{get\+Trip\+Length()}{getTripLength()}}
+{\footnotesize\ttfamily void College\+Model\+::get\+Trip\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to receive trip length from student. 
+
+\mbox{\hyperlink{class_college_model_ab621eb530418fdcbd35a88911881504f}{College\+Model\+::get\+Trip\+Length}} prompts user for trip length based on total colleges in database. \mbox{\Hypertarget{class_college_model_ac37d99bb60d755ef0539d8e6c4481ab7}\label{class_college_model_ac37d99bb60d755ef0539d8e6c4481ab7}} 
+\index{College\+Model@{College\+Model}!loading\+Page@{loading\+Page}}
+\index{loading\+Page@{loading\+Page}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{loading\+Page}{loadingPage}}
+{\footnotesize\ttfamily void College\+Model\+::loading\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+
+
+Timing function. 
+
+\mbox{\hyperlink{class_college_model_ac37d99bb60d755ef0539d8e6c4481ab7}{College\+Model\+::loading\+Page}} Brief intermission when traveling. \mbox{\Hypertarget{class_college_model_aeabb600577c25bbe804849baa4875c14}\label{class_college_model_aeabb600577c25bbe804849baa4875c14}} 
+\index{College\+Model@{College\+Model}!populate\+Souvenir\+Menu@{populate\+Souvenir\+Menu}}
+\index{populate\+Souvenir\+Menu@{populate\+Souvenir\+Menu}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{populate\+Souvenir\+Menu()}{populateSouvenirMenu()}}
+{\footnotesize\ttfamily void College\+Model\+::populate\+Souvenir\+Menu (\begin{DoxyParamCaption}\item[{int}]{college\+ID }\end{DoxyParamCaption})}
+
+
+
+Populates menu with souvenir data to be purchased. 
+
+\mbox{\hyperlink{class_college_model_aeabb600577c25bbe804849baa4875c14}{College\+Model\+::populate\+Souvenir\+Menu}} populates layout with souvenir buttons representing the databases souvenir items for current college that the student can interact with to add souvenirs to their cart.
+
+
+\begin{DoxyParams}{Parameters}
+{\em college\+ID} & -\/ A struct argument \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_college_model_a95322085a90304da8cbb265c80a3c3aa}\label{class_college_model_a95322085a90304da8cbb265c80a3c3aa}} 
+\index{College\+Model@{College\+Model}!recursive\+Path\+Planner@{recursive\+Path\+Planner}}
+\index{recursive\+Path\+Planner@{recursive\+Path\+Planner}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{recursive\+Path\+Planner()}{recursivePathPlanner()}}
+{\footnotesize\ttfamily void College\+Model\+::recursive\+Path\+Planner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_college}{College}}}]{current\+College,  }\item[{Q\+Vector$<$ \mbox{\hyperlink{struct_college}{College}} $>$ \&}]{most\+Efficient\+List }\end{DoxyParamCaption})}
+
+
+
+Recursive function to effectively plan the trip amongst colleges. 
+
+\mbox{\hyperlink{class_college_model_a95322085a90304da8cbb265c80a3c3aa}{College\+Model\+::recursive\+Path\+Planner}} Recursively travels from each college to the next based upon the shortest distance between each of the colleges, thens stores the traversal order into a Q\+Vector of colleges to be used for the student\textquotesingle{}s trip.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+College} & -\/ A struct argument \\
+\hline
+{\em most\+Efficient\+List} & -\/ A Q\+Vector of structs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_college_model_a77fd4ae5151724440b68f236305ff74e}\label{class_college_model_a77fd4ae5151724440b68f236305ff74e}} 
+\index{College\+Model@{College\+Model}!souvenir\+Button\+Pressed@{souvenir\+Button\+Pressed}}
+\index{souvenir\+Button\+Pressed@{souvenir\+Button\+Pressed}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{souvenir\+Button\+Pressed}{souvenirButtonPressed}}
+{\footnotesize\ttfamily void College\+Model\+::souvenir\+Button\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Processes intermission between traversal. 
+
+\mbox{\hyperlink{class_college_model_a77fd4ae5151724440b68f236305ff74e}{College\+Model\+::souvenir\+Button\+Pressed}} Function to use data from the souvenir buttons to add item from database into their transactions. \mbox{\Hypertarget{class_college_model_a6b2cca5127c7d95affe9870b1226a012}\label{class_college_model_a6b2cca5127c7d95affe9870b1226a012}} 
+\index{College\+Model@{College\+Model}!update\+Cart@{update\+Cart}}
+\index{update\+Cart@{update\+Cart}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{update\+Cart()}{updateCart()}}
+{\footnotesize\ttfamily void College\+Model\+::update\+Cart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}}}]{item }\end{DoxyParamCaption})}
+
+
+
+Adds item to cart and updates. 
+
+\mbox{\hyperlink{class_college_model_a6b2cca5127c7d95affe9870b1226a012}{College\+Model\+::update\+Cart}} Updates student\textquotesingle{}s cart to ensure it is accurate and all items are proper.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & -\/ A struct argument \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_college_model_a345c4e6868df90bed49e80b6783f5578}\label{class_college_model_a345c4e6868df90bed49e80b6783f5578}} 
+\index{College\+Model@{College\+Model}!vector\+Contains@{vector\+Contains}}
+\index{vector\+Contains@{vector\+Contains}!College\+Model@{College\+Model}}
+\subsubsection{\texorpdfstring{vector\+Contains()}{vectorContains()}}
+{\footnotesize\ttfamily bool College\+Model\+::vector\+Contains (\begin{DoxyParamCaption}\item[{Q\+Vector$<$ \mbox{\hyperlink{struct_college}{College}} $>$}]{colleges,  }\item[{\mbox{\hyperlink{struct_college}{College}}}]{search\+Rest }\end{DoxyParamCaption})}
+
+
+
+Search function for college. 
+
+\mbox{\hyperlink{class_college_model_a345c4e6868df90bed49e80b6783f5578}{College\+Model\+::vector\+Contains}} Scans vector of colleges if a specified college argument is present.
+
+
+\begin{DoxyParams}{Parameters}
+{\em colleges} & -\/ A Q\+Vector of structs \\
+\hline
+{\em search\+Rest} & -\/ A struct argument \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool of if searched college was found 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+collegemodel.\+h\item 
+collegemodel.\+cpp\end{DoxyCompactItemize}

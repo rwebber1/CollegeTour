@@ -15,16 +15,25 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 
+/*! Default Destructor
+ * \brief MainWindow::~MainWindow
+ */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+/*!
+ * \brief MainWindow::on_startButton_clicked
+ */
 void MainWindow::on_startButton_clicked()
 {
     ui->main_stacked_widget->setCurrentIndex(1);
 }
 
+/*!
+ * \brief MainWindow::initialCollegeSelected
+ */
 void MainWindow::initialCollegeSelected()
 {
     // Get the QPushButton object that was clicked
@@ -41,6 +50,11 @@ void MainWindow::initialCollegeSelected()
     collegeView->getTripLength();
 }
 
+/*!
+ * \brief MainWindow::populateMenu
+ * Fills menu up with database colleges to allow user to choose
+ * which college they wish to start their custom trip at.
+ */
 void MainWindow::populateMenu()
 {
     QVector<College> colleges = dbManager::getInstance()->getColleges();
@@ -78,12 +92,17 @@ void MainWindow::populateMenu()
 }
 
 
-
+/*!
+ * \brief MainWindow::on_header_icon_push_button_clicked
+ */
 void MainWindow::on_header_icon_push_button_clicked()
 {
     ui->main_stacked_widget->setCurrentIndex(0);
 }
 
+/*!
+ * \brief MainWindow::on_ASU_trip_button_clicked
+ */
 void MainWindow::on_ASU_trip_button_clicked()
 {
     CollegeModel* collegeView = new CollegeModel(dbManager::getInstance()->getCollegeByID(1), true);
@@ -92,6 +111,9 @@ void MainWindow::on_ASU_trip_button_clicked()
 
 }
 
+/*!
+ * \brief MainWindow::on_shortest_trip_button_clicked
+ */
 void MainWindow::on_shortest_trip_button_clicked()
 {
     College uci = dbManager::getInstance()->getCollegeByID(6);
@@ -101,16 +123,27 @@ void MainWindow::on_shortest_trip_button_clicked()
     collegeView->getTripLength();
 }
 
+/*!
+ * \brief MainWindow::on_admin_push_button_clicked
+ */
 void MainWindow::on_admin_push_button_clicked()
 {
     ui->main_stacked_widget->setCurrentIndex(2);
 }
 
+/*!
+ * \brief MainWindow::on_back_button_clicked
+ */
 void MainWindow::on_back_button_clicked()
 {
     ui->main_stacked_widget->setCurrentIndex(0);
 }
 
+/*!
+ * \brief MainWindow::validateLogin
+ * Function to check login credentials for validity
+ * and if not will prompt user
+ */
 void MainWindow::validateLogin()
 {
 
@@ -130,6 +163,11 @@ void MainWindow::validateLogin()
     }
 
 }
+
+/*!
+ * \brief MainWindow::on_login_button_clicked
+ * Attempts login process
+ */
 void MainWindow::on_login_button_clicked()
 {
     validateLogin();
@@ -137,13 +175,18 @@ void MainWindow::on_login_button_clicked()
     ui->password_line_edit->clear();
 }
 
+/*!
+ * \brief MainWindow::on_username_line_edit_returnPressed
+ */
 void MainWindow::on_username_line_edit_returnPressed()
 {
     validateLogin();
     ui->username_line_edit->clear();
     ui->password_line_edit->clear();
 }
-
+/*!
+ * \brief MainWindow::on_password_line_edit_returnPressed
+ */
 void MainWindow::on_password_line_edit_returnPressed()
 {
     validateLogin();
@@ -151,16 +194,29 @@ void MainWindow::on_password_line_edit_returnPressed()
     ui->password_line_edit->clear();
 }
 
+/*!
+ * \brief MainWindow::on_username_line_edit_textEdited
+ * \param arg1
+ */
 void MainWindow::on_username_line_edit_textEdited(const QString &arg1)
 {
     ui->error_label->hide();
 }
 
+/*!
+ * \brief MainWindow::on_password_line_edit_textEdited
+ * \param arg1
+ */
 void MainWindow::on_password_line_edit_textEdited(const QString &arg1)
 {
     ui->error_label->hide();
 }
 
+/*!
+ * \brief MainWindow::populateAdminMenu
+ * Populates admin menu with souvenir lists from which
+ * the user can select an item to change or delete
+ */
 void MainWindow::populateAdminMenu()
 {
     ui->souvenir_list_widget->clear();
@@ -183,6 +239,9 @@ void MainWindow::populateAdminMenu()
     }
 }
 
+/*!
+ * \brief MainWindow::on_add_souvenir_button_clicked
+ */
 void MainWindow::on_add_souvenir_button_clicked()
 {
     maintenance* addSouvenirOperation = new maintenance(false, this, souvenirItem(), College());
@@ -190,11 +249,19 @@ void MainWindow::on_add_souvenir_button_clicked()
 
 }
 
+/*!
+ * \brief MainWindow::on_souvenir_list_widget_clicked
+ * \param index
+ */
 void MainWindow::on_souvenir_list_widget_clicked(const QModelIndex &index)
 {
     selectedRow = index.row();
 }
 
+/*!
+ * \brief MainWindow::on_souvenir_list_widget_doubleClicked
+ * \param index - An integer argument
+ */
 void MainWindow::on_souvenir_list_widget_doubleClicked(const QModelIndex &index)
 {
     int souvenirItemID = ui->souvenir_list_widget->item(index.row())->data(Qt::UserRole).toInt();
@@ -225,6 +292,10 @@ void MainWindow::on_souvenir_list_widget_doubleClicked(const QModelIndex &index)
     }
 }
 
+/*!
+ * \brief MainWindow::on_upload_college_button_clicked
+ * Reads from a file to add a college into the database
+ */
 void MainWindow::on_upload_college_button_clicked()
 {
     QFileDialog dialog(this);
@@ -290,6 +361,9 @@ void MainWindow::on_upload_college_button_clicked()
     }
 }
 
+/*!
+ * \brief MainWindow::on_exit_button_clicked
+ */
 void MainWindow::on_exit_button_clicked()
 {
     ui->main_stacked_widget->setCurrentIndex(0);

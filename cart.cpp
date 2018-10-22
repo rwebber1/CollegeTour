@@ -1,8 +1,15 @@
 #include "cart.h"
 
 
-//Transaction class functions
+/***************************************
+ *  Transaction Class Functions
+ **************************************/
 
+/*! Constructor with parameters
+ * \brief Transaction::Transaction
+ * \param college - A struct argument
+ * \param itemPurchased - A struct argument
+ */
 Transaction::Transaction(College college, souvenirItem itemPurchased)
 {
 
@@ -10,6 +17,11 @@ Transaction::Transaction(College college, souvenirItem itemPurchased)
     this->itemPurchased = itemPurchased;
 }
 
+/*! Overloaded Operator
+ * \brief Transaction::operator ==
+ * \param other - A class argument
+ * \return boolean for if they are equivalent or not
+ */
 bool Transaction::operator==(Transaction& other)
 {
     return ((other.itemPurchased.name == this->itemPurchased.name) && (other.college.id == this->college.id));
@@ -17,13 +29,22 @@ bool Transaction::operator==(Transaction& other)
 
 
 
-//Cart functions
+/***************************************
+ *  Cart Class Functions
+ **************************************/
 
+/*!
+ * \brief Cart::size
+ * \return size of purchases vector
+ */
 int Cart::size()
 {
     return purchases.size();
 }
 
+/*!
+ * \brief Cart::printCart
+ */
 void Cart::printCart()
 {
     if (this->purchases.size())
@@ -43,12 +64,21 @@ void Cart::printCart()
     }
 }
 
+/*!
+ * \brief Cart::addTransaction
+ * \param college   - A struct argument
+ * \param itemPurchased - A struct argument
+ */
 void Cart::addTransaction(College college, souvenirItem itemPurchased)
 {
     Transaction newTrans = Transaction(college, itemPurchased);
     purchases.push_back(newTrans);
 }
 
+/*!
+ * \brief Cart::deleteTransaction
+ * \param transaction - A class argument
+ */
 void Cart::deleteTransaction(Transaction transaction)
 {
     for (int index=0; index < purchases.size(); index++)
@@ -61,6 +91,10 @@ void Cart::deleteTransaction(Transaction transaction)
     }
 }
 
+/*!
+ * \brief Cart::getTotal
+ * \return double value of total costs
+ */
 double Cart::getTotal()
 {
     double total = 0;
@@ -71,6 +105,10 @@ double Cart::getTotal()
     return total;
 }
 
+/*!
+ * \brief Cart::getPurchases
+ * \return vector of private data members to examine
+ */
 QVector<Transaction> Cart::getPurchases()
 {
     QVector<Transaction> dummyVector;

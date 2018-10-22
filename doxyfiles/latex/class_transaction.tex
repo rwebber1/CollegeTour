@@ -1,0 +1,104 @@
+\hypertarget{class_transaction}{}\section{Transaction Class Reference}
+\label{class_transaction}\index{Transaction@{Transaction}}
+
+
+The \mbox{\hyperlink{class_transaction}{Transaction}} class.  
+
+
+
+
+{\ttfamily \#include $<$cart.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_transaction_af91c48f0072425f2c65cb3689ca6c653}{operator==}} (\mbox{\hyperlink{class_transaction}{Transaction}} \&other)
+\begin{DoxyCompactList}\small\item\em Overloaded Operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transaction_a027ee3210228e05081452160100a65df}{Transaction}} (\mbox{\hyperlink{struct_college}{College}} \mbox{\hyperlink{class_transaction_a8789961780bef7d71a64eb894fb57d84}{college}}, \mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} \mbox{\hyperlink{class_transaction_a2526fe971714943e90457cc9bce61b56}{item\+Purchased}})
+\begin{DoxyCompactList}\small\item\em A Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_transaction_ab47005b855d38bc324bb79fd023baa13}\label{class_transaction_ab47005b855d38bc324bb79fd023baa13}} 
+\mbox{\hyperlink{class_transaction_ab47005b855d38bc324bb79fd023baa13}{Transaction}} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_transaction_a362b0d2524d0c799165190517192dca9}\label{class_transaction_a362b0d2524d0c799165190517192dca9}} 
+\mbox{\hyperlink{class_transaction_a362b0d2524d0c799165190517192dca9}{$\sim$\+Transaction}} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_transaction_a8789961780bef7d71a64eb894fb57d84}\label{class_transaction_a8789961780bef7d71a64eb894fb57d84}} 
+\mbox{\hyperlink{struct_college}{College}} \mbox{\hyperlink{class_transaction_a8789961780bef7d71a64eb894fb57d84}{college}}
+\begin{DoxyCompactList}\small\item\em Struct of college to represent colleges. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_transaction_a2526fe971714943e90457cc9bce61b56}\label{class_transaction_a2526fe971714943e90457cc9bce61b56}} 
+\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} \mbox{\hyperlink{class_transaction_a2526fe971714943e90457cc9bce61b56}{item\+Purchased}}
+\begin{DoxyCompactList}\small\item\em Struct of souvenir items to track purchasing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \mbox{\hyperlink{class_transaction}{Transaction}} class. 
+
+The \mbox{\hyperlink{class_transaction}{Transaction}} Handler The transaction class will handle operations in the cart class of which it is composed as a private Q\+Vector data member. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_transaction_a027ee3210228e05081452160100a65df}\label{class_transaction_a027ee3210228e05081452160100a65df}} 
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\index{Transaction@{Transaction}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{Transaction()}{Transaction()}}
+{\footnotesize\ttfamily Transaction\+::\+Transaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_college}{College}}}]{college,  }\item[{\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}}}]{item\+Purchased }\end{DoxyParamCaption})}
+
+
+
+A Constructor. 
+
+\mbox{\hyperlink{class_transaction_a027ee3210228e05081452160100a65df}{Transaction\+::\+Transaction}}.
+
+\mbox{\hyperlink{class_transaction}{Transaction}} Sets the arguments that are passed into the classes data members. 
+\begin{DoxyParams}{Parameters}
+{\em college} & -\/ A struct argument \\
+\hline
+{\em item\+Purchased} & -\/ A struct argument\\
+\hline
+\end{DoxyParams}
+Constructor with parameters 
+\begin{DoxyParams}{Parameters}
+{\em college} & -\/ A struct argument \\
+\hline
+{\em item\+Purchased} & -\/ A struct argument \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_transaction_af91c48f0072425f2c65cb3689ca6c653}\label{class_transaction_af91c48f0072425f2c65cb3689ca6c653}} 
+\index{Transaction@{Transaction}!operator==@{operator==}}
+\index{operator==@{operator==}!Transaction@{Transaction}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Transaction\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_transaction}{Transaction}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Overloaded Operator. 
+
+\mbox{\hyperlink{class_transaction_af91c48f0072425f2c65cb3689ca6c653}{Transaction\+::operator ==}}.
+
+operator == Overloads the \textquotesingle{}equal to\textquotesingle{} operator for processing 
+\begin{DoxyParams}{Parameters}
+{\em other} & the items purchased to be compared for reassurance of correct item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean that is true if this item is equal to the other item
+\end{DoxyReturn}
+Overloaded Operator 
+\begin{DoxyParams}{Parameters}
+{\em other} & -\/ A class argument \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean for if they are equivalent or not 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+cart.\+h\item 
+cart.\+cpp\end{DoxyCompactItemize}

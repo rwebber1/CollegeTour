@@ -1,6 +1,12 @@
 #include "collegemodel.h"
 #include "ui_collegemodel.h"
 
+/*! The College User-Interface
+ * \brief CollegeModel::CollegeModel
+ * \param collegeClicked - A struct argument
+ * \param asuTrip       - bool for starting point
+ * \param parent
+ */
 CollegeModel::CollegeModel(College collegeClicked, bool asuTrip, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CollegeModel)
@@ -37,6 +43,10 @@ CollegeModel::CollegeModel(College collegeClicked, bool asuTrip, QWidget *parent
 }
 
 
+/*!
+ * \brief CollegeModel::clearWidgets
+ * \param layout - Widget to be cleared argument
+ */
 void CollegeModel::clearWidgets(QLayout * layout)
 {
     if (!layout)
@@ -47,6 +57,10 @@ void CollegeModel::clearWidgets(QLayout * layout)
     }
 }
 
+/*!
+ * \brief CollegeModel::getTripLength
+ * prompts user for trip length based on total colleges in database
+ */
 void CollegeModel::getTripLength()
 {
     bool ok;
@@ -66,6 +80,13 @@ void CollegeModel::getTripLength()
     }
 }
 
+/*!
+ * \brief CollegeModel::populateSouvenirMenu
+ * populates layout with souvenir buttons representing the
+ * databases souvenir items for current college that the
+ * student can interact with to add souvenirs to their cart
+ * \param collegeID - A struct argument
+ */
 void CollegeModel::populateSouvenirMenu(int collegeID)
 {
     clearWidgets(ui->gridLayout);
@@ -98,6 +119,11 @@ void CollegeModel::populateSouvenirMenu(int collegeID)
     this->collegeClicked = currentCollege;
 }
 
+/*!
+ * \brief CollegeModel::souvenirButtonPressed
+ * Function to use data from the souvenir buttons
+ * to add item from database into their transactions
+ */
 void CollegeModel::souvenirButtonPressed()
 {
     // Get the QPushButton object that was clicked
@@ -112,7 +138,12 @@ void CollegeModel::souvenirButtonPressed()
     confirmPurchase(clickedSouvenir);
 }
 
-//needs work once cart is done
+/*!
+ * \brief CollegeModel::confirmPurchase
+ * Confirms if the user wants to purchase the item they have
+ * selected for reassurance.
+ * \param souvenir - A struct argument
+ */
 void CollegeModel::confirmPurchase(souvenirItem souvenir)
 {
     bool ok;
@@ -129,6 +160,13 @@ void CollegeModel::confirmPurchase(souvenirItem souvenir)
     }
 }
 
+/*!
+ * \brief CollegeModel::vectorContains
+ * Scans vector of colleges if a specified college argument is present
+ * \param colleges - A QVector of structs
+ * \param searchRest - A struct argument
+ * \return bool of if searched college was found
+ */
 bool CollegeModel::vectorContains(QVector<College> colleges, College searchRest)
 {
     for (int index=0; index < colleges.size(); index++)
@@ -142,6 +180,14 @@ bool CollegeModel::vectorContains(QVector<College> colleges, College searchRest)
     return false;
 }
 
+/*!
+ * \brief CollegeModel::recursivePathPlanner
+ * Recursively travels from each college to the next based upon the shortest
+ * distance between each of the colleges, thens stores the traversal order
+ * into a QVector of colleges to be used for the student's trip.
+ * \param currentCollege - A struct argument
+ * \param mostEfficientList - A QVector of structs
+ */
 void CollegeModel::recursivePathPlanner(College currentCollege, QVector<College>& mostEfficientList)
 {
     mostEfficientList.push_back(currentCollege);
@@ -173,11 +219,19 @@ void CollegeModel::recursivePathPlanner(College currentCollege, QVector<College>
         recursivePathPlanner(nextClosest, mostEfficientList);
     }
 }
+
+/*! Default Constructor
+ * \brief CollegeModel::~CollegeModel
+ */
 CollegeModel::~CollegeModel()
 {
     delete ui;
 }
 
+/*!
+ * \brief CollegeModel::on_next_college_button_clicked
+ * Iterates to the next college and processes new menus
+ */
 void CollegeModel::on_next_college_button_clicked()
 {
     if(totalCollegesToVisit == 1)
@@ -266,11 +320,20 @@ void CollegeModel::on_next_college_button_clicked()
     }
 }
 
+/*!
+ * \brief CollegeModel::on_cartList_clicked
+ * \param index - representation of item clicked
+ */
 void CollegeModel::on_cartList_clicked(const QModelIndex &index)
 {
     this->selectedRow = index.row();
 }
 
+/*!
+ * \brief CollegeModel::on_removeCartItemButton_clicked
+ * Processes removal of item selected by user from the purchases
+ * data vector in transactions
+ */
 void CollegeModel::on_removeCartItemButton_clicked()
 {
     if (this->cart.size() > 0 && selectedRow != -2 && ui->cartList->item(selectedRow))
@@ -312,6 +375,12 @@ void CollegeModel::on_removeCartItemButton_clicked()
     }
 }
 
+/*!
+ * \brief CollegeModel::updateCart
+ * Updates student's cart to ensure it is accurate and
+ * all items are proper
+ * \param item - A struct argument
+ */
 void CollegeModel::updateCart(souvenirItem item)
 {
     QListWidgetItem* newItem = new QListWidgetItem;
@@ -323,6 +392,11 @@ void CollegeModel::updateCart(souvenirItem item)
     ui->totals_label->setText("Total: $" + QString::number(cart.getTotal(), 'f', 2));
 }
 
+/*!
+ * \brief CollegeModel::on_totals_button_clicked
+ * Creates instance of totalssheet class to view
+ * a layout detailing trip expenses.
+ */
 void CollegeModel::on_totals_button_clicked()
 {
     if (cart.size() > 0)
@@ -332,6 +406,10 @@ void CollegeModel::on_totals_button_clicked()
     }
 }
 
+/*!
+ * \brief CollegeModel::loadingPage
+ * Brief intermission when traveling
+ */
 void CollegeModel::loadingPage()
 {
     drivingGif->start();
@@ -341,6 +419,11 @@ void CollegeModel::loadingPage()
     ui->college_model_stacked_widget->setCurrentIndex(0);
 }
 
+/*!
+ * \brief CollegeModel::delay
+ * Helper timing function for loading page
+ * \param n - Amount of seconds to delay
+ */
 void CollegeModel::delay(int n)
 {
     QTime dieTime= QTime::currentTime().addSecs(n);

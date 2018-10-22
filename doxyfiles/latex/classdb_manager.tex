@@ -1,0 +1,291 @@
+\hypertarget{classdb_manager}{}\section{db\+Manager Class Reference}
+\label{classdb_manager}\index{db\+Manager@{db\+Manager}}
+
+
+The \mbox{\hyperlink{classdb_manager}{db\+Manager}} class Class to handle all functionality of a S\+Q\+Lite database. Allows only a single instance to be created and uses that instance throughout execution. All data will be represented in Q\+Vectors and queries.  
+
+
+
+
+{\ttfamily \#include $<$dbmanager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdb_manager_a6980cc0fa5fdc50934944c6f17b6980a}\label{classdb_manager_a6980cc0fa5fdc50934944c6f17b6980a}} 
+void \mbox{\hyperlink{classdb_manager_a6980cc0fa5fdc50934944c6f17b6980a}{initialize\+DB}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classdb_manager_a6980cc0fa5fdc50934944c6f17b6980a}{db\+Manager\+::initialize\+DB}} Initializes data if not present \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdb_manager_a4170bc104b663300dee1fd7390a6ae63}{close\+Database}} ()
+\begin{DoxyCompactList}\small\item\em Initializes instance of database. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classdb_manager_ae211811d8431bd57bd250c2ab753f691}{get\+Total\+Colleges}} ()
+\begin{DoxyCompactList}\small\item\em Receives pointer to database for access. \end{DoxyCompactList}\item 
+Q\+Vector$<$ \mbox{\hyperlink{struct_college}{College}} $>$ \mbox{\hyperlink{classdb_manager_aad9d2f24ac9c74728393502b6c04a0b8}{get\+Colleges}} ()
+\begin{DoxyCompactList}\small\item\em Receives number of colleges in database. \end{DoxyCompactList}\item 
+Q\+Vector$<$ \mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} $>$ \mbox{\hyperlink{classdb_manager_a91281dfbeb41cebfa8a633e3a7e12a5e}{get\+Souvenirs\+By\+College\+ID}} (int college\+ID)
+\begin{DoxyCompactList}\small\item\em Function to get every college in database. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_college}{College}} \mbox{\hyperlink{classdb_manager_a1ad8ef74ddb1a0022a1598ef9e60cd6f}{get\+College\+By\+ID}} (int college\+\_\+\+ID)
+\begin{DoxyCompactList}\small\item\em Searches database for souvenir by college ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} \mbox{\hyperlink{classdb_manager_a005ba0700501bd4c601a79248607f2b6}{get\+Souvenir\+By\+ID}} (int souvenir\+Item\+\_\+\+ID)
+\begin{DoxyCompactList}\small\item\em Searches for college by college ID. \end{DoxyCompactList}\item 
+Q\+Vector$<$ \mbox{\hyperlink{struct_distance}{Distance}} $>$ \mbox{\hyperlink{classdb_manager_aaa56ad9c1a84cd0063efa1551b297138}{get\+Distances\+From}} (int source\+College\+\_\+\+ID)
+\begin{DoxyCompactList}\small\item\em Searches for souvenir by college ID. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdb_manager_a0ce2c2fa322e30e512165509811544fa}{authenticate\+Admin\+Login\+Request}} (Q\+String name, Q\+String password)
+\begin{DoxyCompactList}\small\item\em Checks distances between colleges. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdb_manager_ae466201599ce67617d769a1196714bf1}{add\+College}} (\mbox{\hyperlink{struct_college}{College}} college, Q\+Vector$<$ \mbox{\hyperlink{struct_distance}{Distance}} $>$ distances)
+\begin{DoxyCompactList}\small\item\em Validates credentials to database credentials. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdb_manager_aa52b30e936de3c8c7b561c6d6c6a4cd6}{add\+Souvenir\+Item}} (\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} new\+Souvenir, \mbox{\hyperlink{struct_college}{College}} to\+Add\+To)
+\begin{DoxyCompactList}\small\item\em Adds college to database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdb_manager_a4d1f437fbf2bed7786324a8dcf639a4a}{modify\+Souvenir\+Item}} (\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} new\+Souvenir)
+\begin{DoxyCompactList}\small\item\em Adds souvenir item to database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdb_manager_a97da73c78035103e648836dbfb927786}{delete\+Souvenir\+Item}} (\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} deleted\+Item)
+\begin{DoxyCompactList}\small\item\em Modifies information of specific souvenir item in database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classdb_manager}{db\+Manager}} $\ast$ \mbox{\hyperlink{classdb_manager_a0b96aeab4f66563db74711be1dfc1edb}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Closes connection upon termination. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \mbox{\hyperlink{classdb_manager}{db\+Manager}} class Class to handle all functionality of a S\+Q\+Lite database. Allows only a single instance to be created and uses that instance throughout execution. All data will be represented in Q\+Vectors and queries. 
+
+The Database Manager 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classdb_manager_ae466201599ce67617d769a1196714bf1}\label{classdb_manager_ae466201599ce67617d769a1196714bf1}} 
+\index{db\+Manager@{db\+Manager}!add\+College@{add\+College}}
+\index{add\+College@{add\+College}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{add\+College()}{addCollege()}}
+{\footnotesize\ttfamily void db\+Manager\+::add\+College (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_college}{College}}}]{college,  }\item[{Q\+Vector$<$ \mbox{\hyperlink{struct_distance}{Distance}} $>$}]{distances }\end{DoxyParamCaption})}
+
+
+
+Validates credentials to database credentials. 
+
+\mbox{\hyperlink{classdb_manager_ae466201599ce67617d769a1196714bf1}{db\+Manager\+::add\+College}} Will use input college information to add it to databse
+
+To add a new college to database 
+\begin{DoxyParams}{Parameters}
+{\em college} & -\/ A struct argument \\
+\hline
+{\em distances} & -\/ A Q\+Vector argument \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classdb_manager_aa52b30e936de3c8c7b561c6d6c6a4cd6}\label{classdb_manager_aa52b30e936de3c8c7b561c6d6c6a4cd6}} 
+\index{db\+Manager@{db\+Manager}!add\+Souvenir\+Item@{add\+Souvenir\+Item}}
+\index{add\+Souvenir\+Item@{add\+Souvenir\+Item}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{add\+Souvenir\+Item()}{addSouvenirItem()}}
+{\footnotesize\ttfamily void db\+Manager\+::add\+Souvenir\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}}}]{new\+Souvenir,  }\item[{\mbox{\hyperlink{struct_college}{College}}}]{to\+Add\+To }\end{DoxyParamCaption})}
+
+
+
+Adds college to database. 
+
+\mbox{\hyperlink{classdb_manager_aa52b30e936de3c8c7b561c6d6c6a4cd6}{db\+Manager\+::add\+Souvenir\+Item}} Adds souvenir item to records based on input information
+
+To add souvenir item to database 
+\begin{DoxyParams}{Parameters}
+{\em new\+Souvenir} & -\/ A struct argument \\
+\hline
+{\em to\+Add\+To} & -\/ A struct argument \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classdb_manager_a0ce2c2fa322e30e512165509811544fa}\label{classdb_manager_a0ce2c2fa322e30e512165509811544fa}} 
+\index{db\+Manager@{db\+Manager}!authenticate\+Admin\+Login\+Request@{authenticate\+Admin\+Login\+Request}}
+\index{authenticate\+Admin\+Login\+Request@{authenticate\+Admin\+Login\+Request}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{authenticate\+Admin\+Login\+Request()}{authenticateAdminLoginRequest()}}
+{\footnotesize\ttfamily bool db\+Manager\+::authenticate\+Admin\+Login\+Request (\begin{DoxyParamCaption}\item[{Q\+String}]{name,  }\item[{Q\+String}]{password }\end{DoxyParamCaption})}
+
+
+
+Checks distances between colleges. 
+
+A function to verify login request of admin.
+
+authenticate\+Admin\+Login\+Request Will take the username and password entered and compare it to the key stored to verify access. 
+\begin{DoxyParams}{Parameters}
+{\em username} & -\/ A Q\+String argument \\
+\hline
+{\em passsword} & -\/ A Q\+String argument \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean that is true if the entered information is identical 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdb_manager_a4170bc104b663300dee1fd7390a6ae63}\label{classdb_manager_a4170bc104b663300dee1fd7390a6ae63}} 
+\index{db\+Manager@{db\+Manager}!close\+Database@{close\+Database}}
+\index{close\+Database@{close\+Database}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{close\+Database()}{closeDatabase()}}
+{\footnotesize\ttfamily void db\+Manager\+::close\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes instance of database. 
+
+\mbox{\hyperlink{classdb_manager_a4170bc104b663300dee1fd7390a6ae63}{db\+Manager\+::close\+Database}} removes connection to database
+
+Closes connection \mbox{\Hypertarget{classdb_manager_a97da73c78035103e648836dbfb927786}\label{classdb_manager_a97da73c78035103e648836dbfb927786}} 
+\index{db\+Manager@{db\+Manager}!delete\+Souvenir\+Item@{delete\+Souvenir\+Item}}
+\index{delete\+Souvenir\+Item@{delete\+Souvenir\+Item}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{delete\+Souvenir\+Item()}{deleteSouvenirItem()}}
+{\footnotesize\ttfamily void db\+Manager\+::delete\+Souvenir\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}}}]{deleted\+Item }\end{DoxyParamCaption})}
+
+
+
+Modifies information of specific souvenir item in database. 
+
+\mbox{\hyperlink{classdb_manager_a97da73c78035103e648836dbfb927786}{db\+Manager\+::delete\+Souvenir\+Item}} Will take item and delete it from database records
+
+Deletes souvenir from database 
+\begin{DoxyParams}{Parameters}
+{\em deleted\+Item} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classdb_manager_a1ad8ef74ddb1a0022a1598ef9e60cd6f}\label{classdb_manager_a1ad8ef74ddb1a0022a1598ef9e60cd6f}} 
+\index{db\+Manager@{db\+Manager}!get\+College\+By\+ID@{get\+College\+By\+ID}}
+\index{get\+College\+By\+ID@{get\+College\+By\+ID}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{get\+College\+By\+I\+D()}{getCollegeByID()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_college}{College}} db\+Manager\+::get\+College\+By\+ID (\begin{DoxyParamCaption}\item[{int}]{college\+\_\+\+ID }\end{DoxyParamCaption})}
+
+
+
+Searches database for souvenir by college ID. 
+
+\mbox{\hyperlink{classdb_manager_a1ad8ef74ddb1a0022a1598ef9e60cd6f}{db\+Manager\+::get\+College\+By\+ID}}
+
+To find college by associated ID 
+\begin{DoxyParams}{Parameters}
+{\em college\+\_\+\+ID} & -\/ An integer argument \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdb_manager_aad9d2f24ac9c74728393502b6c04a0b8}\label{classdb_manager_aad9d2f24ac9c74728393502b6c04a0b8}} 
+\index{db\+Manager@{db\+Manager}!get\+Colleges@{get\+Colleges}}
+\index{get\+Colleges@{get\+Colleges}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{get\+Colleges()}{getColleges()}}
+{\footnotesize\ttfamily Q\+Vector$<$ \mbox{\hyperlink{struct_college}{College}} $>$ db\+Manager\+::get\+Colleges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Receives number of colleges in database. 
+
+\mbox{\hyperlink{classdb_manager_aad9d2f24ac9c74728393502b6c04a0b8}{db\+Manager\+::get\+Colleges}}
+
+Function to get all colleges in database \begin{DoxyReturn}{Returns}
+Q\+Vector of colleges 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdb_manager_aaa56ad9c1a84cd0063efa1551b297138}\label{classdb_manager_aaa56ad9c1a84cd0063efa1551b297138}} 
+\index{db\+Manager@{db\+Manager}!get\+Distances\+From@{get\+Distances\+From}}
+\index{get\+Distances\+From@{get\+Distances\+From}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{get\+Distances\+From()}{getDistancesFrom()}}
+{\footnotesize\ttfamily Q\+Vector$<$ \mbox{\hyperlink{struct_distance}{Distance}} $>$ db\+Manager\+::get\+Distances\+From (\begin{DoxyParamCaption}\item[{int}]{source\+College\+\_\+\+ID }\end{DoxyParamCaption})}
+
+
+
+Searches for souvenir by college ID. 
+
+To get the colleges to other colleges.
+
+get\+Distances\+From Will take in the colleges ID and match it with is corresponding distances list and return it for use. 
+\begin{DoxyParams}{Parameters}
+{\em source\+College\+\_\+\+ID} & -\/ An integer argument \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Q\+Vector of the distances of that college 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdb_manager_a0b96aeab4f66563db74711be1dfc1edb}\label{classdb_manager_a0b96aeab4f66563db74711be1dfc1edb}} 
+\index{db\+Manager@{db\+Manager}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdb_manager}{db\+Manager}} $\ast$ db\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Closes connection upon termination. 
+
+\mbox{\hyperlink{classdb_manager_a0b96aeab4f66563db74711be1dfc1edb}{db\+Manager\+::get\+Instance}} Used for everytime database access is needed
+
+To access database \begin{DoxyReturn}{Returns}
+pointer to database 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdb_manager_a005ba0700501bd4c601a79248607f2b6}\label{classdb_manager_a005ba0700501bd4c601a79248607f2b6}} 
+\index{db\+Manager@{db\+Manager}!get\+Souvenir\+By\+ID@{get\+Souvenir\+By\+ID}}
+\index{get\+Souvenir\+By\+ID@{get\+Souvenir\+By\+ID}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{get\+Souvenir\+By\+I\+D()}{getSouvenirByID()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} db\+Manager\+::get\+Souvenir\+By\+ID (\begin{DoxyParamCaption}\item[{int}]{souvenir\+Item\+\_\+\+ID }\end{DoxyParamCaption})}
+
+
+
+Searches for college by college ID. 
+
+\mbox{\hyperlink{classdb_manager_a005ba0700501bd4c601a79248607f2b6}{db\+Manager\+::get\+Souvenir\+By\+ID}} Searches database by specific souvenir ID
+
+To find souvenir by ID 
+\begin{DoxyParams}{Parameters}
+{\em souvenir\+Item\+\_\+\+ID} & -\/ An integer argument \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdb_manager_a91281dfbeb41cebfa8a633e3a7e12a5e}\label{classdb_manager_a91281dfbeb41cebfa8a633e3a7e12a5e}} 
+\index{db\+Manager@{db\+Manager}!get\+Souvenirs\+By\+College\+ID@{get\+Souvenirs\+By\+College\+ID}}
+\index{get\+Souvenirs\+By\+College\+ID@{get\+Souvenirs\+By\+College\+ID}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{get\+Souvenirs\+By\+College\+I\+D()}{getSouvenirsByCollegeID()}}
+{\footnotesize\ttfamily Q\+Vector$<$ \mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} $>$ db\+Manager\+::get\+Souvenirs\+By\+College\+ID (\begin{DoxyParamCaption}\item[{int}]{college\+ID }\end{DoxyParamCaption})}
+
+
+
+Function to get every college in database. 
+
+\mbox{\hyperlink{classdb_manager_a91281dfbeb41cebfa8a633e3a7e12a5e}{db\+Manager\+::get\+Souvenirs\+By\+College\+ID}}
+
+To find souvenirs of a college 
+\begin{DoxyParams}{Parameters}
+{\em college\+ID} & -\/ An integer argument \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Vector of souvenirs that college has associated with it 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdb_manager_ae211811d8431bd57bd250c2ab753f691}\label{classdb_manager_ae211811d8431bd57bd250c2ab753f691}} 
+\index{db\+Manager@{db\+Manager}!get\+Total\+Colleges@{get\+Total\+Colleges}}
+\index{get\+Total\+Colleges@{get\+Total\+Colleges}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{get\+Total\+Colleges()}{getTotalColleges()}}
+{\footnotesize\ttfamily int db\+Manager\+::get\+Total\+Colleges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Receives pointer to database for access. 
+
+\mbox{\hyperlink{classdb_manager_ae211811d8431bd57bd250c2ab753f691}{db\+Manager\+::get\+Total\+Colleges}}
+
+\begin{DoxyReturn}{Returns}
+size of college records 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdb_manager_a4d1f437fbf2bed7786324a8dcf639a4a}\label{classdb_manager_a4d1f437fbf2bed7786324a8dcf639a4a}} 
+\index{db\+Manager@{db\+Manager}!modify\+Souvenir\+Item@{modify\+Souvenir\+Item}}
+\index{modify\+Souvenir\+Item@{modify\+Souvenir\+Item}!db\+Manager@{db\+Manager}}
+\subsubsection{\texorpdfstring{modify\+Souvenir\+Item()}{modifySouvenirItem()}}
+{\footnotesize\ttfamily void db\+Manager\+::modify\+Souvenir\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}}}]{new\+Souvenir\+Item }\end{DoxyParamCaption})}
+
+
+
+Adds souvenir item to database. 
+
+\mbox{\hyperlink{classdb_manager_a4d1f437fbf2bed7786324a8dcf639a4a}{db\+Manager\+::modify\+Souvenir\+Item}} Changes record data fro given souvenir item
+
+To modify souvenir information 
+\begin{DoxyParams}{Parameters}
+{\em new\+Souvenir\+Item} & -\/ A struct argument \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dbmanager.\+h\item 
+dbmanager.\+cpp\end{DoxyCompactItemize}

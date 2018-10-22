@@ -1,6 +1,11 @@
 #include "totalssheet.h"
 #include "ui_totalssheet.h"
 
+/*! Constructor
+ * \brief totalsSheet::totalsSheet
+ * \param cartInfo - A class argument
+ * \param parent
+ */
 totalsSheet::totalsSheet(Cart cartInfo, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::totalsSheet)
@@ -38,6 +43,9 @@ totalsSheet::totalsSheet(Cart cartInfo, QWidget *parent) :
     ui->totals_list->addItem("Grand total: $" + QString::number(cart.getTotal(), 'f', 2));
 }
 
+/*! Destructor
+ * \brief totalsSheet::~totalsSheet
+ */
 totalsSheet::~totalsSheet()
 {
     delete ui;

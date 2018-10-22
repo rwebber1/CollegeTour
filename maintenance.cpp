@@ -1,6 +1,14 @@
 #include "maintenance.h"
 #include "ui_maintenance.h"
 
+/*! Constructor
+ * \brief maintenance::maintenance
+ * \param modifying - bool if modifiying item
+ * \param mainWindow - pointer to mainwindow for updates
+ * \param souvenir - A struct argument
+ * \param college - a struct argument
+ * \param parent
+ */
 maintenance::maintenance(bool modifying, MainWindow *mainWindow, souvenirItem souvenir, College college, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::maintenance)
@@ -29,11 +37,18 @@ maintenance::maintenance(bool modifying, MainWindow *mainWindow, souvenirItem so
     }
 }
 
+/*! Default Destructor
+ * \brief maintenance::~maintenance
+ */
 maintenance::~maintenance()
 {
     delete ui;
 }
 
+/*!
+ * \brief maintenance::on_add_button_clicked
+ * Processes new item addition
+ */
 void maintenance::on_add_button_clicked()
 {
     this->newSouvenir.name = ui->new_item_name->text();
@@ -62,21 +77,37 @@ void maintenance::on_add_button_clicked()
 
 }
 
+/*!
+ * \brief maintenance::on_college_combo_box_currentIndexChanged
+ * \param index - An integer argument
+ */
 void maintenance::on_college_combo_box_currentIndexChanged(int index)
 {
     this->selectedCollegeID = ui->college_combo_box->itemData(index, Qt::UserRole).toInt();
 }
 
+/*!
+ * \brief maintenance::on_modify_name_edit_textChanged
+ * \param newName - A QString argument
+ */
 void maintenance::on_modify_name_edit_textChanged(const QString &newName)
 {
     this->itemToModify.name = newName;
 }
 
+/*!
+ * \brief maintenance::on_modify_price_valueChanged
+ * \param newPrice - A double argument
+ */
 void maintenance::on_modify_price_valueChanged(double newPrice)
 {
     this->itemToModify.price = newPrice;
 }
 
+/*!
+ * \brief maintenance::on_save_button_clicked
+ * Confrims item to database
+ */
 void maintenance::on_save_button_clicked()
 {
     QMessageBox::StandardButton confirm;
@@ -89,11 +120,17 @@ void maintenance::on_save_button_clicked()
     this->close();
 }
 
+/*!
+ * \brief maintenance::on_cancel_button_2_clicked
+ */
 void maintenance::on_cancel_button_2_clicked()
 {
     this->close();
 }
 
+/*!
+ * \brief maintenance::on_cancel_button_clicked
+ */
 void maintenance::on_cancel_button_clicked()
 {
     this->close();

@@ -1,0 +1,88 @@
+\hypertarget{struct_college}{}\section{College Struct Reference}
+\label{struct_college}\index{College@{College}}
+
+
+The \mbox{\hyperlink{struct_college}{College}} struct Stores colleges with their relevant data as well as operations to compare to other college structs.  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{struct_college_a6cdcaec6e39c48a6f42f4e908aa04d95}{operator$<$}} (const \mbox{\hyperlink{struct_college}{College}} \&other\+College) const
+\begin{DoxyCompactList}\small\item\em operator $<$ Overloaded to compare distances of colleges to each other to find which is the closest. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_college_a99fcfec7020b9c21aa202a496397ec57}{College}} (int \mbox{\hyperlink{struct_college_ac843c7eba029693454852fddeaeeb9b4}{id}}, Q\+String \mbox{\hyperlink{struct_college_ae8b235251d87f2e0709e90a697b0d06b}{name}}, double \mbox{\hyperlink{struct_college_a173efd43af4e173b2a77ba1054d91374}{distance\+To\+Saddleback}}, Q\+Vector$<$ \mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} $>$ items)
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_college_ac843c7eba029693454852fddeaeeb9b4}\label{struct_college_ac843c7eba029693454852fddeaeeb9b4}} 
+int \mbox{\hyperlink{struct_college_ac843c7eba029693454852fddeaeeb9b4}{id}}
+\begin{DoxyCompactList}\small\item\em The integer ID of each college. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_college_ae8b235251d87f2e0709e90a697b0d06b}\label{struct_college_ae8b235251d87f2e0709e90a697b0d06b}} 
+Q\+String \mbox{\hyperlink{struct_college_ae8b235251d87f2e0709e90a697b0d06b}{name}}
+\begin{DoxyCompactList}\small\item\em A Q\+String for the name of college. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_college_a173efd43af4e173b2a77ba1054d91374}\label{struct_college_a173efd43af4e173b2a77ba1054d91374}} 
+double \mbox{\hyperlink{struct_college_a173efd43af4e173b2a77ba1054d91374}{distance\+To\+Saddleback}}
+\begin{DoxyCompactList}\small\item\em Double for each colleges\textquotesingle{}s distance to Saddleback. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_college_aa946205609ca2fd1e47641c1a0a9a09b}\label{struct_college_aa946205609ca2fd1e47641c1a0a9a09b}} 
+Q\+Vector$<$ \mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} $>$ \mbox{\hyperlink{struct_college_aa946205609ca2fd1e47641c1a0a9a09b}{souvenir\+Items}}
+\begin{DoxyCompactList}\small\item\em Q\+Vector of souvenir items that has each colleges\textquotesingle{} souvenirs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \mbox{\hyperlink{struct_college}{College}} struct Stores colleges with their relevant data as well as operations to compare to other college structs. 
+
+\mbox{\hyperlink{struct_college}{College}} Struct 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_college_a99fcfec7020b9c21aa202a496397ec57}\label{struct_college_a99fcfec7020b9c21aa202a496397ec57}} 
+\index{College@{College}!College@{College}}
+\index{College@{College}!College@{College}}
+\subsubsection{\texorpdfstring{College()}{College()}}
+{\footnotesize\ttfamily College\+::\+College (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{Q\+String}]{name,  }\item[{double}]{distance\+To\+Saddleback,  }\item[{Q\+Vector$<$ \mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} $>$}]{items }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Default Constructor. 
+
+Constructor \mbox{\hyperlink{struct_college}{College}} Constructs college with preset data 
+\begin{DoxyParams}{Parameters}
+{\em id} & -\/ An integer argument \\
+\hline
+{\em name} & -\/ A Q\+String argument \\
+\hline
+{\em distance\+To\+Saddleback} & -\/ A double argument \\
+\hline
+{\em items} & -\/ A Q\+Vector argument \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_college_a6cdcaec6e39c48a6f42f4e908aa04d95}\label{struct_college_a6cdcaec6e39c48a6f42f4e908aa04d95}} 
+\index{College@{College}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!College@{College}}
+\subsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool College\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_college}{College}} \&}]{other\+College }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator $<$ Overloaded to compare distances of colleges to each other to find which is the closest. 
+
+Operator $<$ Overload 
+\begin{DoxyParams}{Parameters}
+{\em other\+College} & -\/ A struct argument \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean if one college\textquotesingle{}s distance is less than the others 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+mainwindow.\+h\end{DoxyCompactItemize}

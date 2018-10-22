@@ -1,0 +1,140 @@
+\hypertarget{class_cart}{}\section{Cart Class Reference}
+\label{class_cart}\index{Cart@{Cart}}
+
+
+The \mbox{\hyperlink{class_cart}{Cart}} class.  
+
+
+
+
+{\ttfamily \#include $<$cart.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_cart_a596ee7e7ced21478d39b6afe67828a2b}\label{class_cart_a596ee7e7ced21478d39b6afe67828a2b}} 
+\mbox{\hyperlink{class_cart_a596ee7e7ced21478d39b6afe67828a2b}{Cart}} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_cart_ac89333c3766ab987cad13fc430407b78}{size}} ()
+\begin{DoxyCompactList}\small\item\em Function to return size of transactions vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cart_aa85e6745516afcd9b46fac6397aa5439}{print\+Cart}} ()
+\begin{DoxyCompactList}\small\item\em Prints out contents of transactions in cart. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cart_a751f19cb4df33a6a8c89f7e752cdb07d}{add\+Transaction}} (\mbox{\hyperlink{struct_college}{College}} college, \mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}} item\+Purchased)
+\begin{DoxyCompactList}\small\item\em add\+Transaction Will take item and corresponding college as arguments and store into purchases \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cart_a82fa9a7a845f5fde8d88999a11159d27}{delete\+Transaction}} (\mbox{\hyperlink{class_transaction}{Transaction}} transaction)
+\begin{DoxyCompactList}\small\item\em delete\+Transaction Will take selected transaction and remove it from purchases. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_cart_a86b4dda9ec906b2949248ce1085285e1}{get\+Total}} ()
+\begin{DoxyCompactList}\small\item\em Function to calculate total costs of purchases. \end{DoxyCompactList}\item 
+Q\+Vector$<$ \mbox{\hyperlink{class_transaction}{Transaction}} $>$ \mbox{\hyperlink{class_cart_a3d7b1086c3a0ee0e9ae9c004f80fbc69}{get\+Purchases}} ()
+\begin{DoxyCompactList}\small\item\em Function to return dummy vector of purchases. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \mbox{\hyperlink{class_cart}{Cart}} class. 
+
+The Shopping \mbox{\hyperlink{class_cart}{Cart}} The cart will handles the basics of purhcasing a collective of items and has the capabilities to add and remove items at user\textquotesingle{}s will. Will rely upon functionality from transaction class. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cart_a751f19cb4df33a6a8c89f7e752cdb07d}\label{class_cart_a751f19cb4df33a6a8c89f7e752cdb07d}} 
+\index{Cart@{Cart}!add\+Transaction@{add\+Transaction}}
+\index{add\+Transaction@{add\+Transaction}!Cart@{Cart}}
+\subsubsection{\texorpdfstring{add\+Transaction()}{addTransaction()}}
+{\footnotesize\ttfamily void Cart\+::add\+Transaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_college}{College}}}]{college,  }\item[{\mbox{\hyperlink{structsouvenir_item}{souvenir\+Item}}}]{item\+Purchased }\end{DoxyParamCaption})}
+
+
+
+add\+Transaction Will take item and corresponding college as arguments and store into purchases 
+
+\mbox{\hyperlink{class_cart_a751f19cb4df33a6a8c89f7e752cdb07d}{Cart\+::add\+Transaction}}.
+
+To add item to purchases 
+\begin{DoxyParams}{Parameters}
+{\em college} & -\/ A struct argument \\
+\hline
+{\em item\+Purchased} & -\/ A struct argument\\
+\hline
+{\em college} & -\/ A struct argument \\
+\hline
+{\em item\+Purchased} & -\/ A struct argument \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cart_a82fa9a7a845f5fde8d88999a11159d27}\label{class_cart_a82fa9a7a845f5fde8d88999a11159d27}} 
+\index{Cart@{Cart}!delete\+Transaction@{delete\+Transaction}}
+\index{delete\+Transaction@{delete\+Transaction}!Cart@{Cart}}
+\subsubsection{\texorpdfstring{delete\+Transaction()}{deleteTransaction()}}
+{\footnotesize\ttfamily void Cart\+::delete\+Transaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_transaction}{Transaction}}}]{transaction }\end{DoxyParamCaption})}
+
+
+
+delete\+Transaction Will take selected transaction and remove it from purchases. 
+
+\mbox{\hyperlink{class_cart_a82fa9a7a845f5fde8d88999a11159d27}{Cart\+::delete\+Transaction}}.
+
+To delete item from purchases 
+\begin{DoxyParams}{Parameters}
+{\em transaction} & -\/ A class argument\\
+\hline
+{\em transaction} & -\/ A class argument \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cart_a3d7b1086c3a0ee0e9ae9c004f80fbc69}\label{class_cart_a3d7b1086c3a0ee0e9ae9c004f80fbc69}} 
+\index{Cart@{Cart}!get\+Purchases@{get\+Purchases}}
+\index{get\+Purchases@{get\+Purchases}!Cart@{Cart}}
+\subsubsection{\texorpdfstring{get\+Purchases()}{getPurchases()}}
+{\footnotesize\ttfamily Q\+Vector$<$ \mbox{\hyperlink{class_transaction}{Transaction}} $>$ Cart\+::get\+Purchases (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to return dummy vector of purchases. 
+
+\mbox{\hyperlink{class_cart_a3d7b1086c3a0ee0e9ae9c004f80fbc69}{Cart\+::get\+Purchases}}.
+
+\begin{DoxyReturn}{Returns}
+vector of private data members to examine 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cart_a86b4dda9ec906b2949248ce1085285e1}\label{class_cart_a86b4dda9ec906b2949248ce1085285e1}} 
+\index{Cart@{Cart}!get\+Total@{get\+Total}}
+\index{get\+Total@{get\+Total}!Cart@{Cart}}
+\subsubsection{\texorpdfstring{get\+Total()}{getTotal()}}
+{\footnotesize\ttfamily double Cart\+::get\+Total (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to calculate total costs of purchases. 
+
+\mbox{\hyperlink{class_cart_a86b4dda9ec906b2949248ce1085285e1}{Cart\+::get\+Total}}.
+
+\begin{DoxyReturn}{Returns}
+double value of total costs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cart_aa85e6745516afcd9b46fac6397aa5439}\label{class_cart_aa85e6745516afcd9b46fac6397aa5439}} 
+\index{Cart@{Cart}!print\+Cart@{print\+Cart}}
+\index{print\+Cart@{print\+Cart}!Cart@{Cart}}
+\subsubsection{\texorpdfstring{print\+Cart()}{printCart()}}
+{\footnotesize\ttfamily void Cart\+::print\+Cart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints out contents of transactions in cart. 
+
+\mbox{\hyperlink{class_cart_aa85e6745516afcd9b46fac6397aa5439}{Cart\+::print\+Cart}}. \mbox{\Hypertarget{class_cart_ac89333c3766ab987cad13fc430407b78}\label{class_cart_ac89333c3766ab987cad13fc430407b78}} 
+\index{Cart@{Cart}!size@{size}}
+\index{size@{size}!Cart@{Cart}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int Cart\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to return size of transactions vector. 
+
+\mbox{\hyperlink{class_cart_ac89333c3766ab987cad13fc430407b78}{Cart\+::size}}.
+
+\begin{DoxyReturn}{Returns}
+size of purchases vector 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+cart.\+h\item 
+cart.\+cpp\end{DoxyCompactItemize}

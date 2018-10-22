@@ -2,7 +2,10 @@
 
 dbManager* dbManager::instance = nullptr;
 
-
+/*!
+ * \brief dbManager::dbManager
+ * Sets up single connection to database
+ */
 dbManager::dbManager()
 {
     database = QSqlDatabase::addDatabase("QSQLITE");
@@ -19,6 +22,11 @@ dbManager::dbManager()
     }
 }
 
+/*! To access database
+ * \brief dbManager::getInstance
+ * Used for everytime database access is needed
+ * \return pointer to database
+ */
 dbManager* dbManager::getInstance()
 {
     if (instance == nullptr)
@@ -28,12 +36,20 @@ dbManager* dbManager::getInstance()
     return instance;
 }
 
+/*! Closes connection
+ * \brief dbManager::closeDatabase
+ * removes connection to database
+ */
 void dbManager::closeDatabase()
 {
     database.close();
     database.removeDatabase(QSqlDatabase::defaultConnection);
 }
 
+/*!
+ * \brief dbManager::initializeDB
+ * Initializes data if not present
+ */
 void dbManager::initializeDB()
 {
     QSqlQuery query;
@@ -43,6 +59,10 @@ void dbManager::initializeDB()
     query.exec("CREATE TABLE IF NOT EXISTS admins ( name VARCHAR(12), password VARCHAR(12) )");
 }
 
+/*!
+ * \brief dbManager::getTotalColleges
+ * \return size of college records
+ */
 int dbManager::getTotalColleges()
 {
     // simply returns an integer representing the total number of the colleges in the db
@@ -63,6 +83,10 @@ int dbManager::getTotalColleges()
     return collegeTotal;
 }
 
+/*! Function to get all colleges in database
+ * \brief dbManager::getColleges
+ * \return QVector of colleges
+ */
 QVector<College> dbManager::getColleges()
 {
     QSqlQuery query;
@@ -93,6 +117,11 @@ QVector<College> dbManager::getColleges()
     return colleges;
 }
 
+/*! To find souvenirs of a college
+ * \brief dbManager::getSouvenirsByCollegeID
+ * \param collegeID - An integer argument
+ * \return QVector of souvenirs that college has associated with it
+ */
 QVector<souvenirItem> dbManager::getSouvenirsByCollegeID(int collegeID)
 {
     QVector<souvenirItem> souvenirItems;
@@ -119,6 +148,11 @@ QVector<souvenirItem> dbManager::getSouvenirsByCollegeID(int collegeID)
     return souvenirItems;
 }
 
+/*! To find college by associated ID
+ * \brief dbManager::getCollegeByID
+ * \param college_ID - An integer argument
+ * \return
+ */
 College dbManager::getCollegeByID(int college_ID)
 {
     QSqlQuery query;
@@ -140,6 +174,12 @@ College dbManager::getCollegeByID(int college_ID)
     }
 }
 
+/*! To find souvenir by ID
+ * \brief dbManager::getSouvenirByID
+ * Searches database by specific souvenir ID
+ * \param souvenirItem_ID - An integer argument
+ * \return
+ */
 souvenirItem dbManager::getSouvenirByID(int souvenirItem_ID)
 {
     QSqlQuery query;
@@ -160,6 +200,14 @@ souvenirItem dbManager::getSouvenirByID(int souvenirItem_ID)
 
 }
 
+//! To get the colleges to other colleges
+/*!
+ * \brief getDistancesFrom Will take in the colleges ID
+ * and match it with is corresponding distances list and return
+ * it for use.
+ * \param sourceCollege_ID - An integer argument
+ * \return A QVector of the distances of that college
+ */
 QVector<Distance> dbManager::getDistancesFrom(int sourceCollege_ID)
 {
     QSqlQuery query;
@@ -185,6 +233,14 @@ QVector<Distance> dbManager::getDistancesFrom(int sourceCollege_ID)
     return distances;
 }
 
+//! A function to verify login request of admin
+/*!
+ * \brief authenticateAdminLoginRequest Will take the username and
+ * password entered and compare it to the key stored to verify access.
+ * \param username  - A QString argument
+ * \param passsword - A QString argument
+ * \return A boolean that is true if the entered information is identical
+ */
 bool dbManager::authenticateAdminLoginRequest(QString name, QString password)
 {
     bool isAdmin = false;
@@ -210,6 +266,12 @@ bool dbManager::authenticateAdminLoginRequest(QString name, QString password)
     return isAdmin;
 }
 
+/*! To add a new college to database
+ * \brief dbManager::addCollege
+ * Will use input college information to add it to databse
+ * \param college - A struct argument
+ * \param distances - A QVector argument
+ */\
 void dbManager::addCollege(College college, QVector<Distance> distances)
 {
     QSqlQuery query;
@@ -252,6 +314,13 @@ void dbManager::addCollege(College college, QVector<Distance> distances)
     }
 }
 
+/*! To add souvenir item to database
+ * \brief dbManager::addSouvenirItem
+ * Adds souvenir item to records based on input
+ * information
+ * \param newSouvenir - A struct argument
+ * \param toAddTo - A struct argument
+ */
 void dbManager::addSouvenirItem(souvenirItem newSouvenir, College toAddTo)
 {
     QSqlQuery souvenirItemQuery;
@@ -261,6 +330,11 @@ void dbManager::addSouvenirItem(souvenirItem newSouvenir, College toAddTo)
     souvenirItemQuery.bindValue(":college_ID", toAddTo.id);
 }
 
+/*! To modify souvenir information
+ * \brief dbManager::modifySouvenirItem
+ * Changes record data fro given souvenir item
+ * \param newSouvenirItem - A struct argument
+ */
 void dbManager::modifySouvenirItem(souvenirItem newSouvenirItem)
 {
     QSqlQuery query;
@@ -270,6 +344,11 @@ void dbManager::modifySouvenirItem(souvenirItem newSouvenirItem)
     query.bindValue(":oldID", newSouvenirItem.id);
 }
 
+/*! Deletes souvenir from database
+ * \brief dbManager::deleteSouvenirItem
+ * Will take item and delete it from database records
+ * \param deletedItem
+ */
 void dbManager::deleteSouvenirItem(souvenirItem deletedItem)
 {
     QSqlQuery query;
