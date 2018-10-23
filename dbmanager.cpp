@@ -127,7 +127,7 @@ QVector<souvenirItem> dbManager::getSouvenirsByCollegeID(int collegeID)
     QVector<souvenirItem> souvenirItems;
     QSqlQuery query;
 
-    query.prepare("SELECT Name, Price, id FROM Souvenir_Items WHERE College_ID=:college_ID");
+    query.prepare("SELECT Name, Price, id FROM souvenir_items WHERE College_ID=:college_ID");
     query.bindValue(":college_ID", collegeID);
 
     if (query.exec())
@@ -183,7 +183,7 @@ College dbManager::getCollegeByID(int college_ID)
 souvenirItem dbManager::getSouvenirByID(int souvenirItem_ID)
 {
     QSqlQuery query;
-    query.prepare("SELECT id, Name, Price FROM Souvenir_Items WHERE id=:souvenirItem_ID");
+    query.prepare("SELECT id, Name, Price FROM souvenir_items WHERE id=:souvenirItem_ID");
     query.bindValue(":souvenirItem_ID", souvenirItem_ID);
 
     if(query.exec())
@@ -284,10 +284,9 @@ void dbManager::addCollege(College college, QVector<Distance> distances)
     query.bindValue(":name", college.name);
 
 
-    // Adds all the colleges menu items to the menu_items table
     for (int index=0; index < college.souvenirItems.size(); index++)
     {
-        souvenirItemsQuery.prepare("INSERT INTO menu_items (Name, Price, College_ID) VALUES(:name, :price, :college_ID)");
+        souvenirItemsQuery.prepare("INSERT INTO souvenir_items (Name, Price, College_ID) VALUES(:name, :price, :college_ID)");
         souvenirItemsQuery.bindValue(":name", college.souvenirItems[index].name);
         souvenirItemsQuery.bindValue(":price", college.souvenirItems[index].price);
         souvenirItemsQuery.bindValue(":college_ID", college.id);
@@ -297,7 +296,6 @@ void dbManager::addCollege(College college, QVector<Distance> distances)
     // Add distances for the college being added
     for (int index=0; index < distances.size(); index++)
     {
-
         query.prepare("INSERT INTO distances (CollegeA_ID, CollegeB_ID, DistanceBetween) VALUES(:CollegeA_ID, :CollegeB_ID, :DistanceBetween)");
         query.bindValue(":CollegeA_ID", college.id);
         //query.bindValue(":CollegeB_ID", distances[index].destinationCollege_ID);
@@ -324,10 +322,11 @@ void dbManager::addCollege(College college, QVector<Distance> distances)
 void dbManager::addSouvenirItem(souvenirItem newSouvenir, College toAddTo)
 {
     QSqlQuery souvenirItemQuery;
-    souvenirItemQuery.prepare("INSERT INTO menu_items (Name, Price, College_ID) VALUES(:name, :price, :college_ID)");
+    souvenirItemQuery.prepare("INSERT INTO souvenir_items (Name, Price, College_ID) VALUES(:name, :price, :college_ID)");
     souvenirItemQuery.bindValue(":name", newSouvenir.name);
     souvenirItemQuery.bindValue(":price", newSouvenir.price);
     souvenirItemQuery.bindValue(":college_ID", toAddTo.id);
+    souvenirItemQuery.exec();
 }
 
 /*! To modify souvenir information
@@ -338,10 +337,11 @@ void dbManager::addSouvenirItem(souvenirItem newSouvenir, College toAddTo)
 void dbManager::modifySouvenirItem(souvenirItem newSouvenirItem)
 {
     QSqlQuery query;
-    query.prepare("UPDATE menu_items SET name=:name, price=:price WHERE id=:oldID");
+    query.prepare("UPDATE souvenir_items SET name=:name, price=:price WHERE id=:oldID");
     query.bindValue(":name", newSouvenirItem.name);
     query.bindValue(":price", newSouvenirItem.price);
     query.bindValue(":oldID", newSouvenirItem.id);
+    query.exec();
 }
 
 /*! Deletes souvenir from database
@@ -352,6 +352,7 @@ void dbManager::modifySouvenirItem(souvenirItem newSouvenirItem)
 void dbManager::deleteSouvenirItem(souvenirItem deletedItem)
 {
     QSqlQuery query;
-    query.prepare("DELETE FROM menu_items WHERE id=:ID");
+    query.prepare("DELETE FROM souvenir_items WHERE id=:ID");
     query.bindValue(":ID", deletedItem.id);
+    query.exec();
 }

@@ -231,7 +231,7 @@ void MainWindow::populateAdminMenu()
         ui->souvenir_list_widget->addItem(collegeLabel);
         for (int i=0; i < souvenirItems.size(); i++)
         {
-            QListWidgetItem* newItem = new QListWidgetItem(" °  " + souvenirItems[i].name + " - " + QString::number(souvenirItems[i].price));
+            QListWidgetItem* newItem = new QListWidgetItem(" °  " + souvenirItems[i].name + " - " + QString::number(souvenirItems[i].price, 'f', 2));
             newItem->setData(Qt::UserRole, souvenirItems[i].id);
             newItem->setData(128, colleges[index].id);
             ui->souvenir_list_widget->addItem(newItem);
@@ -246,7 +246,6 @@ void MainWindow::on_add_souvenir_button_clicked()
 {
     maintenance* addSouvenirOperation = new maintenance(false, this, souvenirItem(), College());
     addSouvenirOperation->show();
-
 }
 
 /*!

@@ -67,7 +67,7 @@ void maintenance::on_add_button_clicked()
         if (confirm == QMessageBox::Yes)
         {
             College collegeToAddItemTo = dbManager::getInstance()->getCollegeByID(selectedCollegeID);
-            qDebug() << "New menu item: " << newSouvenir.name;
+            qDebug() << "New souvenir item: " << newSouvenir.name;
             qDebug() << "Adding to college: " << collegeToAddItemTo.name;
             dbManager::getInstance()->addSouvenirItem(newSouvenir, collegeToAddItemTo);
             mainWindow->populateAdminMenu();
