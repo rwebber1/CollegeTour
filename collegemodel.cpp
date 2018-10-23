@@ -18,7 +18,6 @@ CollegeModel::CollegeModel(College collegeClicked, bool asuTrip, QWidget *parent
     {
         ui->trip_distance_label->setText("Total Trip Distance: " + QString::number(collegeClicked.distanceToSaddleback, 'f', 2) + " miles");
         totalCollegesToVisit = dbManager::getInstance()->getTotalColleges();
-        totalDistance = collegeClicked.distanceToSaddleback;
     }
     else
     {
@@ -94,7 +93,7 @@ void CollegeModel::populateSouvenirMenu(int collegeID)
     QVector<souvenirItem> souvenirs = currentCollege.souvenirItems;
 
     // Set up labels
-    ui->trip_distance_label->setText("Distance to saddleback: " + QString::number(currentCollege.distanceToSaddleback) + " miles");
+    ui->trip_distance_label->setText("Distance to Saddleback: " + QString::number(currentCollege.distanceToSaddleback) + " miles");
     ui->college_name_label->setText(currentCollege.name);
     this->setWindowTitle("Viewing College: " + currentCollege.name);
 
@@ -191,11 +190,14 @@ bool CollegeModel::vectorContains(QVector<College> colleges, College searchRest)
 void CollegeModel::recursivePathPlanner(College currentCollege, QVector<College>& mostEfficientList)
 {
     mostEfficientList.push_back(currentCollege);
+
     // cut off the algorithm once we have calculated only the number of colleges the user wants to visit, nothing more
     if (mostEfficientList.size() == this->totalCollegesToVisit)
     {
         return;
-    } else {
+    }
+    else
+    {
         QVector<Distance> distances = dbManager::getInstance()->getDistancesFrom(currentCollege.id);
 
         College nextClosest = dbManager::getInstance()->getCollegeByID(distances.at(0).destinationCollege_ID);
@@ -210,7 +212,9 @@ void CollegeModel::recursivePathPlanner(College currentCollege, QVector<College>
             }
             totalDistance += distances.at(index-1).distanceTo;
 
-        } else {
+        }
+        else
+        {
             totalDistance += distances.at(0).distanceTo;
 
         }
